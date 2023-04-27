@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.18;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/Pausable.sol";
+import "ERC20.sol";
+import "Ownable.sol";
+import "Pausable.sol";
 
 
-contract SoonToken is ERC20,Ownable,Pausable{
+contract SOONTOKEN is ERC20,Ownable,Pausable{
 
   uint256 public constant _cap = 1000000000*(10**18);
 
-   constructor() ERC20("SOON", "SOON") {}
+    constructor() ERC20("SoonSwap", "SOON") {}
 
     function mint(address account, uint256 amount) external onlyOwner {
         require(totalSupply() + amount <= _cap, "SoonToken._mint: cap exceeded");
